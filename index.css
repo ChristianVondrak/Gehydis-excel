@@ -854,7 +854,7 @@ h1, h2, h3, h4 {
 
 .trust-badges {
   margin-top: 30px;
-  border-t: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
   padding-top: 20px;
 }
 

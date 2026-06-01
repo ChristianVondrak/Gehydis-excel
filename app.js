@@ -238,7 +238,7 @@ function initInfoModal() {
       title: 'Política de Privacidad',
       html: `
         <h4 style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">1. Tratamiento de Datos Personales</h4>
-        <p style="margin-bottom: 16px;">En Gehydis, valoramos y respetamos tu privacidad. Toda la información suministrada de forma voluntaria en este sitio web (como tu nombre y las selecciones de tu cotización) tiene como única finalidad preparar y personalizar el mensaje de tu pedido para ser despachado a través de WhatsApp. No almacenamos tus datos personales en servidores externos ni los compartimos con terceros.</p>
+        <p style="margin-bottom: 16px;">Valoramos y respetamos tu privacidad. Toda la información suministrada de forma voluntaria en este sitio web (como tu nombre y las selecciones de tu cotización) tiene como única finalidad preparar y personalizar el mensaje de tu pedido para ser despachado a través de WhatsApp. No almacenamos tus datos personales en servidores externos ni los compartimos con terceros.</p>
         
         <h4 style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">2. Contacto Directo</h4>
         <p style="margin-bottom: 16px;">La transacción final y el soporte técnico postventa se ejecutan exclusivamente a través del canal oficial de WhatsApp. Tus datos de contacto serán tratados con absoluta confidencialidad en el marco exclusivo del soporte de implementación de la herramienta.</p>
@@ -251,13 +251,13 @@ function initInfoModal() {
       title: 'Términos de Servicio',
       html: `
         <h4 style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">1. Licencia de Uso</h4>
-        <p style="margin-bottom: 16px;">El Kit de Nómina en Excel es una herramienta desarrollada de manera independiente por Gehydis para facilitar la gestión administrativa en Venezuela de acuerdo a la LOTTT. Al comprar la herramienta, el usuario adquiere una licencia de uso personal y comercial permanente, de pago único, sin suscripciones mensuales.</p>
+        <p style="margin-bottom: 16px;">El Kit de Nómina en Excel es una herramienta desarrollada de manera independiente para facilitar la gestión administrativa en Venezuela de acuerdo a la LOTTT. Al comprar la herramienta, el usuario adquiere una licencia de uso personal y comercial permanente, de pago único, sin suscripciones mensuales.</p>
         
         <h4 style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">2. Limitación de Responsabilidad</h4>
-        <p style="margin-bottom: 16px;">La correcta configuración de los datos históricos de los empleados, parámetros especiales y la inserción de datos en la hoja de cálculo es responsabilidad directa y exclusiva del comprador. Gehydis no se hace responsable por pérdidas de información o multas derivadas de alteraciones accidentales en las fórmulas originales de Excel realizadas por el usuario final tras la entrega.</p>
+        <p style="margin-bottom: 16px;">La correcta configuración de los datos históricos de los empleados, parámetros especiales y la inserción de datos en la hoja de cálculo es responsabilidad directa y exclusiva del comprador. El desarrollador no se hace responsable por pérdidas de información o multas derivadas de alteraciones accidentales en las fórmulas originales de Excel realizadas por el usuario final tras la entrega.</p>
 
         <h4 style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">3. Propiedad Intelectual y Reventa</h4>
-        <p>Queda terminantemente prohibida la redistribución, copia comercial, reventa o publicación de las plantillas en plataformas web de distribución masiva sin la autorización explícita por escrito de Gehydis. El producto es para uso operativo del adquirente.</p>
+        <p>Queda terminantemente prohibida la redistribución, copia comercial, reventa o publicación de las plantillas en plataformas web de distribución masiva sin la autorización explícita por escrito. El producto es para uso operativo del adquirente.</p>
       `
     }
   };
