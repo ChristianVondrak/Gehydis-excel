@@ -67,7 +67,7 @@ function initScrollReveal() {
 
   const observer = new IntersectionObserver((entries, observer) => {
     const visibleEntries = entries.filter(entry => entry.isIntersecting);
-    
+
     visibleEntries.forEach((entry, index) => {
       const el = entry.target;
       if (el.classList.contains('pain-card') || el.classList.contains('feature-card') || el.classList.contains('pricing-card')) {
@@ -106,7 +106,7 @@ function initPurchaseModal() {
   buyButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
+
       // Siempre pre-seleccionar la opción básica de 10 trabajadores ($25)
       selectRadioTier('10');
 
@@ -180,7 +180,7 @@ function initPurchaseModal() {
   // Confirmar y Enviar a WhatsApp
   btnConfirm.addEventListener('click', () => {
     const name = inputName.value.trim();
-    
+
     // Validación de Nombre
     if (!name) {
       nameError.style.display = 'block';
@@ -196,16 +196,16 @@ function initPurchaseModal() {
     const total = BASE_PRICE + additional;
 
     // Número de teléfono de WhatsApp (puedes cambiarlo por el oficial en producción)
-    const phoneNumber = '584120000000'; 
-    
+    const phoneNumber = '584241967907';
+
     // Construir mensaje estructurado para conversión
     const message = `Hola! Mi nombre es *${name}*.\n\n` +
-                    `Me interesa adquirir el *Kit de Nómina en Excel* adaptado a la LOTTT.\n` +
-                    `• Capacidad: *${workers} Trabajadores*\n` +
-                    `• Precio Base: *$25.00*\n` +
-                    `• Adicional por Capacidad: *+$${additional.toFixed(2)}*\n` +
-                    `• *Monto Total a Pagar: $${total.toFixed(2)}*\n\n` +
-                    `Por favor, indíquenme los métodos de pago disponibles para completar mi compra. ¡Muchas gracias!`;
+      `Me interesa adquirir el *Kit de Nómina en Excel* adaptado a la LOTTT.\n` +
+      `• Capacidad: *${workers} Trabajadores*\n` +
+      `• Precio Base: *$25.00*\n` +
+      `• Adicional por Capacidad: *+$${additional.toFixed(2)}*\n` +
+      `• *Monto Total a Pagar: $${total.toFixed(2)}*\n\n` +
+      `Por favor, indíquenme los métodos de pago disponibles para completar mi compra. ¡Muchas gracias!`;
 
     // URL de WhatsApp Web / App
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
