@@ -554,6 +554,25 @@
     </div>
   </section>
 
+  <!-- Sección Final de Llamado a la Acción (CTA) -->
+  <section class="section cta-section">
+    <div class="container cta-container">
+      <h2>¿Listo para simplificar la nómina de tu negocio?</h2>
+      <p>Adquiere el Kit de Nómina hoy mismo. Pago único para siempre, con 15 días de soporte técnico gratuito.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/584120000000?text=Hola!%20Quiero%20adquirir%20el%20Kit%20de%20N%C3%B3mina%20en%20Excel%20adaptado%20a%20la%20LOTTT"
+          class="btn btn-whatsapp" id="btn-final-cta" target="_blank">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path
+              d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.176 8.176 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.172 8.172 0 0 1-1.26-4.38c.01-4.54 3.7-8.22 8.25-8.22M8.53 7.33c-.15 0-.41.06-.62.29-.22.24-.83.82-.83 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.21-.15-.45-.27-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.55.12-.17.24-.65.82-.8 1-.15.17-.3.19-.54.07-1.24-.62-2.22-1.07-3.09-2.58-.23-.4-.06-.61.09-.76.14-.14.3-.35.45-.53.15-.17.2-.29.3-.49.1-.19.05-.37-.02-.49-.07-.12-.62-1.49-.85-2.05-.23-.56-.47-.48-.65-.49-.16-.01-.35-.01-.53-.01z"
+              fill="currentColor" />
+          </svg>
+          Empezar Ahora por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-content">
@@ -603,46 +622,58 @@
           <div class="option-grid">
             <!-- Opción 10 trabajadores -->
             <label class="option-card selected">
-              <input type="radio" name="worker-tier" value="10" data-add="0" checked>
+              <input type="radio" name="worker-tier" value="10" data-price="25" checked>
               <div class="option-title">10 Trabajadores</div>
-              <div class="option-price">$25 <span class="option-add">(Base)</span></div>
+              <div class="option-price">$25</div>
             </label>
 
             <!-- Opción 20 trabajadores -->
             <label class="option-card">
-              <input type="radio" name="worker-tier" value="20" data-add="10">
+              <input type="radio" name="worker-tier" value="20" data-price="35">
               <div class="option-title">20 Trabajadores</div>
-              <div class="option-price">$35 <span class="option-add">(+$10)</span></div>
+              <div class="option-price">$35</div>
             </label>
 
             <!-- Opción 50 trabajadores -->
             <label class="option-card">
-              <input type="radio" name="worker-tier" value="50" data-add="24">
+              <input type="radio" name="worker-tier" value="50" data-price="49">
               <div class="option-title">50 Trabajadores</div>
-              <div class="option-price">$49 <span class="option-add">(+$24)</span></div>
+              <div class="option-price">$49</div>
             </label>
 
             <!-- Opción 100 trabajadores -->
             <label class="option-card">
-              <input type="radio" name="worker-tier" value="100" data-add="62">
+              <input type="radio" name="worker-tier" value="100" data-price="87">
               <div class="option-title">100 Trabajadores</div>
-              <div class="option-price">$87 <span class="option-add">(+$62)</span></div>
+              <div class="option-price">$87</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Paso 3: Frecuencia de Nómina -->
+        <div class="form-group">
+          <label>Frecuencia de Nómina requerida *</label>
+          <div class="option-grid">
+            <!-- Opción Semanal -->
+            <label class="option-card selected">
+              <input type="radio" name="payroll-frequency" value="Semanal" checked>
+              <div class="option-title">Semanal</div>
+              <div class="option-desc">Cálculos estructurados cada 7 días</div>
+            </label>
+
+            <!-- Opción Quincenal -->
+            <label class="option-card">
+              <input type="radio" name="payroll-frequency" value="Quincenal">
+              <div class="option-title">Quincenal</div>
+              <div class="option-desc">Cálculos estructurados cada 15 días</div>
             </label>
           </div>
         </div>
 
         <!-- Desglose de Precios (Subtotal) -->
         <div class="price-breakdown">
-          <div class="breakdown-row">
-            <span>Precio Base (10 Trab.):</span>
-            <span>$25.00</span>
-          </div>
-          <div class="breakdown-row" id="row-additional">
-            <span>Adicional por Licencia:</span>
-            <span id="val-additional">+$0.00</span>
-          </div>
           <div class="breakdown-row total-row">
-            <span>Subtotal a Pagar:</span>
+            <span>Monto Total a Pagar:</span>
             <span id="val-total">$25.00</span>
           </div>
         </div>

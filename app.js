@@ -96,10 +96,8 @@ function initPurchaseModal() {
   const inputName = document.getElementById('client-name');
   const nameError = document.getElementById('name-error');
   const radioTiers = document.querySelectorAll('input[name="worker-tier"]');
-  const valAdditional = document.getElementById('val-additional');
+  const radioFrequencies = document.querySelectorAll('input[name="payroll-frequency"]');
   const valTotal = document.getElementById('val-total');
-
-  const BASE_PRICE = 25;
 
   // Interceptar todos los enlaces de WhatsApp para abrir el modal
   const buyButtons = document.querySelectorAll('a[href*="wa.me"]');
@@ -107,8 +105,9 @@ function initPurchaseModal() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
 
-      // Siempre pre-seleccionar la opción básica de 10 trabajadores ($25)
-      selectRadioTier('10');
+      // Siempre pre-seleccionar la opción básica de 10 trabajadores y frecuencia Semanal
+      selectRadioTier('worker-tier', '10');
+      selectRadioTier('payroll-frequency', 'Semanal');
 
       openModal();
     });
@@ -141,8 +140,8 @@ function initPurchaseModal() {
   });
 
   // Pre-seleccionar opción por JS
-  function selectRadioTier(value) {
-    const radio = document.querySelector(`input[name="worker-tier"][value="${value}"]`);
+  function selectRadioTier(name, value) {
+    const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
     if (radio) {
       radio.checked = true;
       updatePricingBreakdown(radio);
@@ -156,11 +155,23 @@ function initPurchaseModal() {
     });
   });
 
+  // Escuchar cambio de opción de frecuencia de nómina
+  radioFrequencies.forEach(radio => {
+    radio.addEventListener('change', () => {
+      updatePricingBreakdown(radio);
+    });
+  });
+
   // Recalcular precios dinámicamente y actualizar estilos visuales
   function updatePricingBreakdown(selectedRadio) {
-    // Quitar la clase selected de todas las tarjetas
-    document.querySelectorAll('.option-card').forEach(card => {
-      card.classList.remove('selected');
+    const groupName = selectedRadio.getAttribute('name');
+    
+    // Quitar la clase selected de todas las tarjetas asociadas a este grupo de inputs
+    document.querySelectorAll(`input[name="${groupName}"]`).forEach(input => {
+      const card = input.closest('.option-card');
+      if (card) {
+        card.classList.remove('selected');
+      }
     });
 
     // Agregar la clase selected a la tarjeta elegida
@@ -169,12 +180,11 @@ function initPurchaseModal() {
       card.classList.add('selected');
     }
 
-    const additionalCost = parseFloat(selectedRadio.getAttribute('data-add'));
-    const totalCost = BASE_PRICE + additionalCost;
-
-    // Actualizar textos en la interfaz
-    valAdditional.textContent = `+$${additionalCost.toFixed(2)}`;
-    valTotal.textContent = `$${totalCost.toFixed(2)}`;
+    // Solo actualizar el precio en el totalizador si proviene de la selección de capacidad (trabajadores)
+    if (groupName === 'worker-tier') {
+      const totalCost = parseFloat(selectedRadio.getAttribute('data-price'));
+      valTotal.textContent = `$${totalCost.toFixed(2)}`;
+    }
   }
 
   // Confirmar y Enviar a WhatsApp
@@ -192,8 +202,11 @@ function initPurchaseModal() {
     // Obtener la opción de trabajadores seleccionada
     const selectedRadio = document.querySelector('input[name="worker-tier"]:checked');
     const workers = selectedRadio.value;
-    const additional = parseFloat(selectedRadio.getAttribute('data-add'));
-    const total = BASE_PRICE + additional;
+    const total = parseFloat(selectedRadio.getAttribute('data-price'));
+
+    // Obtener la opción de frecuencia seleccionada
+    const selectedFrequency = document.querySelector('input[name="payroll-frequency"]:checked');
+    const frequency = selectedFrequency ? selectedFrequency.value : 'Semanal';
 
     // Número de teléfono de WhatsApp (puedes cambiarlo por el oficial en producción)
     const phoneNumber = '584241967907';
@@ -202,8 +215,7 @@ function initPurchaseModal() {
     const message = `Hola! Mi nombre es *${name}*.\n\n` +
       `Me interesa adquirir el *Kit de Nómina en Excel* adaptado a la LOTTT.\n` +
       `• Capacidad: *${workers} Trabajadores*\n` +
-      `• Precio Base: *$25.00*\n` +
-      `• Adicional por Capacidad: *+$${additional.toFixed(2)}*\n` +
+      `• Frecuencia: *${frequency}*\n` +
       `• *Monto Total a Pagar: $${total.toFixed(2)}*\n\n` +
       `Por favor, indíquenme los métodos de pago disponibles para completar mi compra. ¡Muchas gracias!`;
 
@@ -211,7 +223,7 @@ function initPurchaseModal() {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     // Registrar conversión en consola
-    console.log(`Conversión registrada para: ${name}. Plan: ${workers} trabajadores. Total: $${total}`);
+    console.log(`Conversión registrada para: ${name}. Plan: ${workers} trabajadores (${frequency}). Total: $${total}`);
 
     // Abrir WhatsApp en pestaña nueva
     window.open(whatsappUrl, '_blank');
