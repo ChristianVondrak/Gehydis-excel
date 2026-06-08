@@ -165,7 +165,7 @@ function initPurchaseModal() {
   // Recalcular precios dinámicamente y actualizar estilos visuales
   function updatePricingBreakdown(selectedRadio) {
     const groupName = selectedRadio.getAttribute('name');
-    
+
     // Quitar la clase selected de todas las tarjetas asociadas a este grupo de inputs
     document.querySelectorAll(`input[name="${groupName}"]`).forEach(input => {
       const card = input.closest('.option-card');
@@ -209,7 +209,7 @@ function initPurchaseModal() {
     const frequency = selectedFrequency ? selectedFrequency.value : 'Semanal';
 
     // Número de teléfono de WhatsApp (puedes cambiarlo por el oficial en producción)
-    const phoneNumber = '584241967907';
+    const phoneNumber = '584220284363';
 
     // Construir mensaje estructurado para conversión
     const message = `Hola! Mi nombre es *${name}*.\n\n` +
