@@ -109,6 +109,11 @@ function initPurchaseModal() {
       selectRadioTier('worker-tier', '10');
       selectRadioTier('payroll-frequency', 'Semanal');
 
+      // Registrar InitiateCheckout en Facebook Pixel
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
+      }
+
       openModal();
     });
   });
@@ -221,6 +226,15 @@ function initPurchaseModal() {
 
     // URL de WhatsApp Web / App
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // Registrar conversión en Facebook Pixel
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: `Kit de Nómina (${workers} Trabajadores - ${frequency})`,
+        value: total,
+        currency: 'USD'
+      });
+    }
 
     // Registrar conversión en consola
     console.log(`Conversión registrada para: ${name}. Plan: ${workers} trabajadores (${frequency}). Total: $${total}`);
